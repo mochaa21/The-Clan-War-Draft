@@ -11,8 +11,7 @@ def clan_war_draft(x):
     def draft_selection(data):
         raw_data = data.split('|')
         name = raw_data[0]
-        th_mentah = raw_data[1]
-        th = int(th_mentah.replace('TH', ''))
+        th = int(raw_data[1].replace('TH', ''))
         hero_level = int(raw_data[2])
         trophy = int(raw_data[3])
         new_data = (-th, -hero_level, -trophy, name)
