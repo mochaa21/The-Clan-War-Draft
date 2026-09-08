@@ -7,12 +7,21 @@ clan_members = [
     "  Charlie | TH11 | 45 | 2800  "
 ]
 
-# TUGAS: Buat fungsi draft_selection(members) dari nol di sini.
-# Pastikan lu membersihkan spasinya, membuang tulisan "TH" agar bisa jadi integer, 
-# dan menyusun tuple 4 dimensinya dengan benar.
+def clan_war_draft(x):
+    def draft_selection(data):
+        raw_data = data.split('|')
+        name = raw_data[0]
+        th_mentah = raw_data[1]
+        th = int(th_mentah.replace('TH', ''))
+        hero_level = int(raw_data[2])
+        trophy = int(raw_data[3])
+        new_data = (-th, -hero_level, -trophy, name)
+        return new_data
+    return sorted(x, key=draft_selection)
+
 
 
 # --- EKSEKUSI ---
-# hasil_draft = draft_selection(clan_members)
-# for member in hasil_draft:
-#     print(member.strip())
+hasil_draft = clan_war_draft(clan_members)
+for member in hasil_draft:
+    print(member.strip())
